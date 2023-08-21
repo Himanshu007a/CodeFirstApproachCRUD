@@ -1,0 +1,36 @@
+﻿@model List<Store>
+
+<h2>Store List</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table table-hover table-bordered table-striped table-dark">
+    <thead>
+        <tr><th>Id</th>
+            <th>Store Name</th>
+            <th>User Name</th>
+             <th>Password</th>
+            <th>Group</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var store in Model)
+        {
+            <tr>
+                <td>@store.Id</td>
+                <td>@store.StoreName</td>
+                <td>@store.UserName</td>
+                    <td>@store.Password</td>
+               
+                <td>
+                    <a asp-action="Edit" asp-route-id="@store.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@store.Id">Delete</a> |
+                      <a asp-action="Details" asp-route-id="@store.Id">Details</a> |
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
